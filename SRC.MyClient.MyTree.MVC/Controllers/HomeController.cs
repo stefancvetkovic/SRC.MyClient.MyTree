@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SRC.MyClient.MyTree.BusinessLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,20 +11,16 @@ namespace SRC.MyClient.MyTree.MVC.Controllers
     {
         public ActionResult Index()
         {
+            var model = new ItemTreeBusinessLogic().GetRootData();
+            return View(model);
+        }
+        public ActionResult AddItem()
+        {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult DeleteItem()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

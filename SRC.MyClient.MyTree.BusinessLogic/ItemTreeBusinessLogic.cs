@@ -18,8 +18,15 @@ namespace SRC.MyClient.MyTree.BusinessLogic
 
         public void InsertData(string name, int? parentId)
         {
+
             ItemTreeDAO dao = new ItemTreeDAO();
             dao.InsertRow(new ItemTree { ParentId = parentId, ItemName = name });
+        }
+
+        public void DeleteItem(int id)
+        {
+            ItemTreeDAO dao = new ItemTreeDAO();
+            dao.DeleteItemAndChilds(id);
         }
     }
 }

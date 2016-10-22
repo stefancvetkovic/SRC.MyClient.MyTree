@@ -13,12 +13,14 @@ namespace SRC.MyClient.MyTree.ConsoleTest
         static void Main(string[] args)
         {
             ItemTreeBusinessLogic bl = new ItemTreeBusinessLogic();
-            List<ItemTree> list = bl.GetRootData();
+            //List<ItemTree> list = bl.GetRootData();
+            bl.DeleteItem(2);
+            //InsertData(bl);
             Console.WriteLine("The end");
             Console.ReadKey();
         }
 
-        public void InsertData(ItemTreeBusinessLogic bl)
+        public static void InsertData(ItemTreeBusinessLogic bl)
         {
             bl.InsertData("root1", null);
             bl.InsertData("level 1", 1);
