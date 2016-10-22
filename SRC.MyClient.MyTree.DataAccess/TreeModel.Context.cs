@@ -9,10 +9,11 @@
 
 namespace SRC.MyClient.MyTree.DataAccess
 {
+    using Model;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class TreeDBEntities : DbContext
     {
         public TreeDBEntities()
