@@ -1,0 +1,30 @@
+USE [TreeDB]
+GO
+
+/****** Object:  Table [dbo].[ItemTree]    Script Date: 22.10.2016. 17.09.23 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ItemTree](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ItemName] [nvarchar](500) NOT NULL,
+	[ParentId] [int] NULL,
+ CONSTRAINT [PK_ItemTree] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[ItemTree]  WITH CHECK ADD  CONSTRAINT [FK_ItemTree_ItemTree] FOREIGN KEY([ParentId])
+REFERENCES [dbo].[ItemTree] ([Id])
+GO
+
+ALTER TABLE [dbo].[ItemTree] CHECK CONSTRAINT [FK_ItemTree_ItemTree]
+GO
+
+

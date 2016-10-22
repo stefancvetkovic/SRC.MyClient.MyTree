@@ -1,5 +1,52 @@
 ﻿@model List<SRC.MyClient.MyTree.Model.ItemTree>
 @{
     ViewBag.Title = "Tree Project";
+    var a = Model;
 }
 
+@helper Aaa(string b)
+{
+    <a href="#">b</a>
+}
+
+@helper GoOneLevel(SRC.MyClient.MyTree.Model.ItemTree itemTree)
+{
+
+
+    <li>
+        <a href="#">
+            @Html.Label(itemTree.Id + " - " + itemTree.ItemName)
+        </a>
+
+
+        @if (itemTree.ChildList.Any())
+        {
+            <ul>
+               @foreach (var item in itemTree.ChildList)
+                {
+                @GoOneLevel(item)
+                }
+            </ul>
+        }
+    </li>
+}
+<div>
+    @Html.ActionLink("Add new item", "AddItem", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Delete item", "DeleteItem", null, new { @class = "btn btn-warning" })
+</div>
+<br/>
+<div class="panel panel-primary">
+    <div class="panel-heading panel-head">Tree View</div>
+    <div id="frm-author" class="panel-body">
+        <div class="tree">
+                       
+            @foreach (var item in Model)
+            {
+                <ul>
+                    @GoOneLevel(item)
+
+                </ul>
+            }
+        </div>
+    </div>
+</div>

@@ -14,24 +14,24 @@ namespace SRC.MyClient.MyTree.ConsoleTest
         {
             ItemTreeBusinessLogic bl = new ItemTreeBusinessLogic();
             //List<ItemTree> list = bl.GetRootData();
-            bl.DeleteItem(2);
+            //bl.DeleteItem(2);
             //InsertData(bl);
             Console.WriteLine("The end");
             Console.ReadKey();
         }
 
-        public static void InsertData(ItemTreeBusinessLogic bl)
-        {
-            bl.InsertData("root1", null);
-            bl.InsertData("level 1", 1);
-            bl.InsertData("level 2", 2);
-            bl.InsertData("level 2", 2);
-            bl.InsertData("level 2", 2);
-            bl.InsertData("level 3", 3);
-            bl.InsertData("level 4", 4);
-            bl.InsertData("level 5", 3);
-            bl.InsertData("level 2", 2);
-            bl.InsertData("level 1", 1);
-        }
+        //public static void InsertData(ItemTreeBusinessLogic bl)
+        //{
+        //    bl.InsertData("root1", null);
+        //    bl.InsertData("level 1", 1);
+        //    bl.InsertData("level 2", 2);
+        //    bl.InsertData("level 2", 2);
+        //    bl.InsertData("level 2", 2);
+        //    bl.InsertData("level 3", 3);
+        //    bl.InsertData("level 4", 4);
+        //    bl.InsertData("level 5", 3);
+        //    bl.InsertData("level 2", 2);
+        //    bl.InsertData("level 1", 1);
+        //}
     }
 }

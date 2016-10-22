@@ -5,3 +5,20 @@
 
 <h2>Delete Item</h2>
 
+@using (@Html.BeginForm("DeleteItem", "Home", FormMethod.Post))
+{
+    <div class="control-group row-fluid">
+        <div class="span2">
+            @Html.Label("", "Item")
+        </div>
+        <div class="controls span10">
+            @Html.DropDownList("Id", new SelectList(ViewBag.Id, "Id", "ItemName", 0), new { @class = "form-control" })
+            @Html.ValidationMessage("Id", null, new { @class = "help-inline" })
+        </div>
+    </div>
+    <br />
+  
+    <input name="submit" type="submit" id="submit" value="Delete" class="btn btn-primary" />
+
+
+}

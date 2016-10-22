@@ -4,4 +4,30 @@
 }
 
 <h2>Add Item</h2>
+@using (@Html.BeginForm("AddItem", "Home", FormMethod.Post))
+{
+    <div class="control-group row-fluid">
+        <div class="span2">
+            @Html.Label("", "Parent Item")
+        </div>
+        <div class="controls span10">
+            @Html.DropDownList("ParentId", new SelectList(ViewBag.ParentId, "Id", "ItemName", 0), new { @class = "form-control" })
+            @Html.ValidationMessage("ParentId", null, new { @class = "help-inline" })
+        </div>
+    </div>
+    <br />
+    <div class="control-group row-fluid">
+        <div class="span2">
+            @Html.Label("", "Item Name")
+        </div>
+        <div class="controls span10">
+            @Html.TextBox("ItemName", null, new { @class = "form-control" })
+            @Html.ValidationMessage("ItemName", null, new { @class = "help-inline" })
+        </div>
+    </div>
 
+    <br/>
+    <input name="submit" type="submit" id="submit" value="Save" class="btn btn-primary" />
+
+
+}

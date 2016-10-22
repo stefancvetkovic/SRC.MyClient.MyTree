@@ -1,4 +1,5 @@
 ﻿using SRC.MyClient.MyTree.BusinessLogic;
+using SRC.MyClient.MyTree.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,81 @@ namespace SRC.MyClient.MyTree.MVC.Controllers
     {
         public ActionResult Index()
         {
-            var model = new ItemTreeBusinessLogic().GetRootData();
-            return View(model);
+            try
+            {
+                var model = new ItemTreeBusinessLogic().GetRootData();
+                return View(model);
+            }
+            catch (Exception)
+            {
+                //TODO:Logovanje
+                return RedirectToAction("Index");
+            }
         }
+        [HttpGet]
         public ActionResult AddItem()
         {
-            return View();
+            try
+            {
+                ViewBag.ParentId = new ItemTreeBusinessLogic().GetAllData();
+                return View();
+            }
+            catch (Exception)
+            {
+                //TODO:Logovanje
+                return RedirectToAction("Index");
+            }
         }
-
+        [HttpGet]
         public ActionResult DeleteItem()
         {
-            return View();
+            try
+            {
+                ViewBag.Id = new ItemTreeBusinessLogic().GetAllData();
+                return View();
+            }
+            catch (Exception)
+            {
+                //TODO:Logovanje
+                return RedirectToAction("Index");
+            }
         }
+
+        [HttpPost]
+        public ActionResult DeleteItem(int id)
+        {
+            try
+            {
+                new ItemTreeBusinessLogic().DeleteItem(id);
+            }
+            catch (Exception)
+            {
+                //TODO:Logovanje
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+            
+        }
+
+
+        [HttpPost]
+        public ActionResult AddItem(ItemTree item)
+        {
+            if (string.IsNullOrEmpty(item.ItemName))
+            {
+                return View(item);
+            }
+            try
+            {
+                new ItemTreeBusinessLogic().InsertData(item);
+            }
+            catch (Exception)
+            {
+                //TODO:Logovanje
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }

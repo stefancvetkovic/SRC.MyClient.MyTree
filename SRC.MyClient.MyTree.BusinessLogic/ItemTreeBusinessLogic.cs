@@ -12,21 +12,56 @@ namespace SRC.MyClient.MyTree.BusinessLogic
     {
         public List<ItemTree> GetRootData()
         {
-            ItemTreeDAO dao = new ItemTreeDAO();
-            return dao.RootMethod();
+            try
+            {
+                ItemTreeDAO dao = new ItemTreeDAO();
+                return dao.RootMethod();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public void InsertData(string name, int? parentId)
+        public void InsertData(ItemTree item)
         {
 
-            ItemTreeDAO dao = new ItemTreeDAO();
-            dao.InsertRow(new ItemTree { ParentId = parentId, ItemName = name });
+            try
+            {
+                ItemTreeDAO dao = new ItemTreeDAO();
+                //dao.InsertRow(new ItemTree { ParentId = parentId, ItemName = name });
+                dao.InsertRow(item);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void DeleteItem(int id)
         {
-            ItemTreeDAO dao = new ItemTreeDAO();
-            dao.DeleteItemAndChilds(id);
+            try
+            {
+
+                ItemTreeDAO dao = new ItemTreeDAO();
+                dao.DeleteItemAndChilds(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<ItemTree> GetAllData()
+        {
+            try
+            {
+                ItemTreeDAO dao = new ItemTreeDAO();
+                return dao.GetAll();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
