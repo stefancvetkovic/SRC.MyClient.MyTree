@@ -14,10 +14,10 @@ namespace SRC.MyClient.MyTree.DataAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
 
-    public partial class TreeDBEntities : DbContext
+    public partial class TreeModelEntities : DbContext
     {
-        public TreeDBEntities()
-            : base("name=TreeDBEntities")
+        public TreeModelEntities()
+            : base("name=TreeModelEntities")
         {
         }
     
@@ -26,7 +26,6 @@ namespace SRC.MyClient.MyTree.DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ItemTree> ItemTree { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<ItemTree> ItemTrees { get; set; }
     }
 }

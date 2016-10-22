@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8B8A37DD-C45E-455D-A483-AB4B4B8C956E}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{EB1F2B02-5C58-4E2E-BD2A-230D2BE4FA2C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SRC.MyClient.MyTree.DataAccess</RootNamespace>
-    <AssemblyName>SRC.MyClient.MyTree.DataAccess</AssemblyName>
+    <RootNamespace>SRC.MyClient.MyTree.ConsoleTest</RootNamespace>
+    <AssemblyName>SRC.MyClient.MyTree.ConsoleTest</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,8 +44,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,41 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemTreeDAO.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TreeModelEntity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TreeModelEntity.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TreeModelEntity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TreeModelEntity.edmx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="TreeModelEntity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TreeModelEntity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="TreeModelEntity.edmx.diagram">
-      <DependentUpon>TreeModelEntity.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TreeModelEntity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TreeModelEntity.edmx</DependentUpon>
-      <LastGenOutput>TreeModelEntity.Context.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\SRC.MyClient.MyTree.BusinessLogic\SRC.MyClient.MyTree.BusinessLogic.csproj">
+      <Project>{25d46677-38d6-4cad-b56e-681f8be7eb3f}</Project>
+      <Name>SRC.MyClient.MyTree.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SRC.MyClient.MyTree.Model\SRC.MyClient.MyTree.Model.csproj">
       <Project>{9c9b95d4-e72d-4810-a129-5d13b48c1cf6}</Project>
       <Name>SRC.MyClient.MyTree.Model</Name>

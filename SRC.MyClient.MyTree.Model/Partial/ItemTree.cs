@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SRC.MyClient.MyTree.DataAccess
+namespace SRC.MyClient.MyTree.Model
 {
-    public class Broker
+    public partial class ItemTree
     {
+        public List<ItemTree> ChildList = new List<ItemTree>();
     }
 }

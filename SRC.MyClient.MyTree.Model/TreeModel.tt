@@ -2,7 +2,7 @@
 <#@ include file="EF6.Utility.CS.ttinclude"#><#@ 
  output extension=".cs"#><#
 
-const string inputFile = @"..\SRC.MyClient.MyTree.DataAccess\TreeModel.edmx";
+const string inputFile = @"..\SRC.MyClient.MyTree.DataAccess\TreeModelEntity.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);

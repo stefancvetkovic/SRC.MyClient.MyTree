@@ -14,15 +14,17 @@ namespace SRC.MyClient.MyTree.Model
     
     public partial class ItemTree
     {
+        private string name;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ItemTree()
         {
             this.ItemTree1 = new HashSet<ItemTree>();
         }
-    
+
         public int Id { get; set; }
         public string ItemName { get; set; }
-        public int ParentId { get; set; }
+        public Nullable<int> ParentId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemTree> ItemTree1 { get; set; }

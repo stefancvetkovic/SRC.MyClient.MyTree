@@ -40,14 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="ItemTree.cs">
       <DependentUpon>TreeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partial\ItemTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>TreeModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="TreeModel1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
